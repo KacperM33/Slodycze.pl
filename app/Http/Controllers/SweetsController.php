@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CookiesController extends Controller
+class SweetsController extends Controller
 {
     //
 }

@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cookies', function (Blueprint $table) {
+        Schema::create('sweets', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 40)->unique();
+            $table->string('name', 40);
+            $table->string('category', 40);
             $table->string('type', 40);
-            $table->string('description', 250);
             $table->float('price');
             $table->float('quantity');
-            $table->date('exp_date');
+            $table->string('describe', 250);
+            $table->date('exp-date');
+
         });
     }
 
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cookies');
+        Schema::dropIfExists('sweets');
     }
 };

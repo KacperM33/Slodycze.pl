@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_users');
+            $table->unsignedBigInteger('id_sweets');
+            $table->foreign('id_users')->references('id')->on('users');
+            $table->foreign('id_sweets')->references('id')->on('sweets');
             $table->date('date');
-            $table->integer('id_users')->unique();
-            $table->float('cost');
-            $table->string('order_status', 40);
-            $table->string('address', 120);
-            $table->string('products', 255);
         });
     }
 
