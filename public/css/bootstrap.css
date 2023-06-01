@@ -5831,6 +5831,7 @@ textarea.form-control-lg {
 .carousel-inner {
   position: relative;
   width: 100%;
+  height: 30vh;
   overflow: hidden;
 }
 .carousel-inner::after {
@@ -10874,6 +10875,23 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+
+.link-card:link {
+    color: whitesmoke;
+    text-decoration: none;
+}
+.link-card:visited {
+    color: whitesmoke;
+    text-decoration: none;
+}
+.link-card:hover {
+    color: #FFA500;
+    text-decoration: none;
+}
+.link-card:active {
+    color: whitesmoke;
+    text-decoration: none;
 }
 
 /*# sourceMappingURL=bootstrap.css.map */

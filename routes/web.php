@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SweetsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('index');
+Route::controller(SweetsController::class)->group(function () {
+    Route::get('/shop', 'index')->name('shop.index');
+    Route::get('/shop/{category}', 'shop')->name('shop.shop');
+    Route::get('/news', 'news')->name('shop.news');
 });
