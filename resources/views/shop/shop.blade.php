@@ -36,8 +36,8 @@
                                 <div class="card-body text-start">
                                 <h5 class="card-title">{{ $t->name }}</h5>
                                 <p class="card-text">{{ $t->describe }}</p>
-                                <a href="#" class="btn btn-secondary btn-outline-light">Sprawdź!</a>
-                                <h4 style="float: right;">{{ $t->price }}/100g</h4>
+                                <a href="{{route('shop.item', ['id' => $t->id])}}" class="btn btn-secondary btn-outline-light">Sprawdź!</a>
+                                <h4 style="float: right;">{{ $t->price }}zł/100g</h4>
                                 </div>
                             </div>
                         </div>

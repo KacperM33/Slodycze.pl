@@ -20,7 +20,6 @@ return new class extends Migration
             $table->float('quantity');
             $table->string('describe', 250);
             $table->date('exp-date');
-
         });
     }
 

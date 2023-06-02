@@ -19,8 +19,7 @@ class SweetsController extends Controller
         ]);
     }
 
-    public function shop($category)
-    {
+    public function shop($category){
         $sweets = Sweets::where('category', $category)->get();
         $id = $sweets->pluck('id')->toArray();
 
@@ -31,7 +30,12 @@ class SweetsController extends Controller
         ]);
     }
 
-    public function news(){
-        return view('shop.news');
+    public function item($id){
+        $candy = Sweets::where('id', $id)->firstOrFail();
+        $category = $candy->category;
+        return view('shop.item', [
+            'id' => $candy,
+            'sw_category' => $category
+        ]);
     }
 }

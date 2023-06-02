@@ -44,37 +44,37 @@
                 <div class="row">
                     <div class="col col-lg-4 mb-3">
                         <div class="card text-bg-dark border-warning" style="width: 20rem;">
-                            <a href="#" class="link-card">
+                            <a href="{{route('shop.item', ['id' => $cukierek->id])}}" class="link-card">
                                 <img src="{{ asset('img/sweets/'.$cukierek->name.'.jpg') }}" class="card-img mb-3" alt="...">
                                 <div class="card-img-overlay">
                                     <h5 class="card-title">{{$cukierek->name}}</h5>
                                 </div>
                                     <p class="card-text mx-3">{{$cukierek->describe}}</p>
-                                    <h3>{{$cukierek->price}}/100g</h3>
+                                    <h3>{{$cukierek->price}}zł/100g</h3>
                             </a>
                         </div>
                     </div>
                     <div class="col col-lg-4 mb-3">
                         <div class="card text-bg-dark border-warning" style="width: 20rem;">
-                            <a href="#" class="link-card">
+                            <a href="{{route('shop.item', ['id' => $czekolada->id])}}" class="link-card">
                                 <img src="{{ asset('img/sweets/'.$czekolada->name.'.jpg') }}" class="card-img mb-3" alt="...">
                                 <div class="card-img-overlay">
                                     <h5 class="card-title">{{$czekolada->name}}</h5>
                                 </div>
                                     <p class="card-text mx-3">{{$czekolada->describe}}</p>
-                                    <h3>{{$czekolada->price}}/100g</h3>
+                                    <h3>{{$czekolada->price}}zł/100g</h3>
                             </a>
                         </div>
                     </div>
                     <div class="col col-lg-4 mb-3">
                         <div class="card text-bg-dark border-warning" style="width: 20rem;">
-                            <a href="#" class="link-card">
+                            <a href="{{route('shop.item', ['id' => $zelek->id])}}" class="link-card">
                                 <img src="{{ asset('img/sweets/'.$zelek->name.'.jpg') }}" class="card-img mb-3" alt="...">
                                 <div class="card-img-overlay">
                                     <h5 class="card-title">{{$zelek->name}}</h5>
                                 </div>
                                     <p class="card-text mx-3">{{$zelek->describe}}</p>
-                                    <h3>{{$zelek->price}}/100g</h3>
+                                    <h3>{{$zelek->price}}zł/100g</h3>
                             </a>
                         </div>
                     </div>

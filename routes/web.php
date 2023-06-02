@@ -21,5 +21,7 @@ Route::get('/', function () {
 Route::controller(SweetsController::class)->group(function () {
     Route::get('/shop', 'index')->name('shop.index');
     Route::get('/shop/{category}', 'shop')->name('shop.shop');
-    Route::get('/news', 'news')->name('shop.news');
+    Route::get('/item/{id}', 'item')->name('shop.item');
 });
+
+
