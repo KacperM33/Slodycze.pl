@@ -8,13 +8,26 @@ use App\Models\Sweets;
 class SweetsController extends Controller
 {
     public function index(){
-        return view('shop.index');
+        $cukierek = Sweets::where('category', 'cukierki')->inRandomOrder()->first();
+        $czekolada = Sweets::where('category', 'czekolada')->inRandomOrder()->first();
+        $zelek = Sweets::where('category', 'żelki')->inRandomOrder()->first();
+
+        return view('shop.index', [
+            'cukierek' => $cukierek,
+            'czekolada' => $czekolada,
+            'zelek' => $zelek
+        ]);
     }
 
     public function shop($category)
     {
+        $sweets = Sweets::where('category', $category)->get();
+        $id = $sweets->pluck('id')->toArray();
+
         return view('shop.shop', [
-            't' => Sweets::where('category', $category)->firstOrFail()
+            'sweets' => $sweets,
+            'sw_category' => $category,
+            'id' => $id
         ]);
     }
 

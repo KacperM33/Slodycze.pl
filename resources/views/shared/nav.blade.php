@@ -12,7 +12,7 @@
                     </a>
                     <ul class="dropdown-menu" style="background-color: #dddddd">
                     <li><a class="dropdown-item" href="{{route('shop.shop', ['category' => 'cukierki'])}}">Cukierki</a></li>
-                    <li><a class="dropdown-item" href="{{route('shop.shop', ['category' => 'czekolada'])}}">Czekolady</a></li>
+                    <li><a class="dropdown-item" href="{{route('shop.shop', ['category' => 'czekolada'])}}">Czekolada</a></li>
                     <li><a class="dropdown-item" href="{{route('shop.shop', ['category' => 'żelki'])}}">Żelki</a></li>
                     </ul>
                 </li>
