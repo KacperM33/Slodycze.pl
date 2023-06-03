@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Słodycze.pl</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="website icon" type="png" href="{{asset('img/icon.png')}}">
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> --}}
   </head>
     @include('shared.nav')
@@ -21,20 +22,6 @@
                     <div class="card text-bg-dark border-dark" style="width: 20rem; -webkit-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
                     -moz-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
                     box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);">
-                        <a href="{{route('shop.item', ['id' => $pol_cukierek->id])}}" class="link-card">
-                            <img src="{{ asset('img/sweets/'.$pol_cukierek->name.'.jpg') }}" class="card-img mb-3" alt="...">
-                            <div class="card-img-overlay">
-                                <h5 class="card-title" style="text-shadow: 0px 0px 8px rgb(0, 0, 0);">{{$pol_cukierek->name}}</h5>
-                            </div>
-                                <p class="card-text mx-3">{{$pol_cukierek->describe}}</p>
-                                <h3>{{$pol_cukierek->price}}zł/100g</h3>
-                        </a>
-                    </div>
-                </div>
-                <div class="col col-lg-4 mb-3">
-                    <div class="card text-bg-dark border-dark" style="width: 20rem; -webkit-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
-                    -moz-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
-                    box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);">
                         <a href="{{route('shop.item', ['id' => $pol_czekolada->id])}}" class="link-card">
                             <img src="{{ asset('img/sweets/'.$pol_czekolada->name.'.jpg') }}" class="card-img mb-3" alt="...">
                             <div class="card-img-overlay">
@@ -42,6 +29,20 @@
                             </div>
                                 <p class="card-text mx-3">{{$pol_czekolada->describe}}</p>
                                 <h3>{{$pol_czekolada->price}}zł/100g</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col col-lg-4 mb-3">
+                    <div class="card text-bg-dark border-dark" style="width: 20rem; -webkit-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
+                    -moz-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
+                    box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);">
+                        <a href="{{route('shop.item', ['id' => $pol_cukierek->id])}}" class="link-card">
+                            <img src="{{ asset('img/sweets/'.$pol_cukierek->name.'.jpg') }}" class="card-img mb-3" alt="...">
+                            <div class="card-img-overlay">
+                                <h5 class="card-title" style="text-shadow: 0px 0px 8px rgb(0, 0, 0);">{{$pol_cukierek->name}}</h5>
+                            </div>
+                                <p class="card-text mx-3">{{$pol_cukierek->describe}}</p>
+                                <h3>{{$pol_cukierek->price}}zł/100g</h3>
                         </a>
                     </div>
                 </div>

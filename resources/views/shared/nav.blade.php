@@ -20,13 +20,28 @@
                     <a class="nav-link" href="#">Nowości</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">O nas</a>
+                    <a class="nav-link" href="#">Kontakt</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Twój koszyk</a>
+                    @if (Auth::check())
+                        <a class="nav-link" href="{{ route('shop.cart', ['id' => Auth::user()->id ])}}">Twój koszyk</a>
+                    @endif
                 </li>
             </ul>
-            <button class="btn btn-outline-dark ms-auto" href="#">Zaloguj</button>
+            @if (Auth::check())
+                <li class="ms-auto nav-item dropdown me-3" style="list-style-type: none; position: relative;">
+                    <a class="dropdown-toggle-no-caret btn btn-outline-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ Auth::user()->name }}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" style="background-color: #dddddd; top: 100%; left: auto; right: 0;">
+                        <li><a class="dropdown-item" href="#">Profil</a></li>
+                        <li><a class="dropdown-item" href="{{ route('logout') }}">Wyloguj</a></li>
+                    </ul>
+                </li>
+                {{-- <a class="btn btn-outline-dark ms-auto" href="{{ route('logout') }}">Wyloguj</a> --}}
+            @else
+                <a class="btn btn-outline-dark ms-auto" href="{{ route('login') }}">Zaloguj</a>
+            @endif
         </div>
     </div>
   </nav>

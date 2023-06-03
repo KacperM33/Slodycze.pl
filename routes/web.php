@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SweetsController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +26,12 @@ Route::controller(SweetsController::class)->group(function () {
     Route::get('/item/{id}', 'item')->name('shop.item');
 });
 
+Route::controller(AuthController::class)->group(function () {
+    Route::get('/auth/login', 'login')->name('login');
+    Route::post('/auth/login', 'authenticate')->name('login.authenticate');
+    Route::get('/auth/logout', 'logout')->name('logout');
+});
 
+Route::controller(UsersController::class)->group(function () {
+    Route::get('/cart/{id}', 'cart')->name('shop.cart');
+});
