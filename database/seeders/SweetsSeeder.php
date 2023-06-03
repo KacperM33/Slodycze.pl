@@ -73,7 +73,7 @@ class SweetsSeeder extends Seeder
                 ],
                 [
                     'name' => 'Fizzy Fizz', 'category' => 'Cukierki', 'type' => 'Musujące',
-                    'price' => '1.29', 'quantity' => '55.00', 'describe' => 'Musujące cukierki o różnych smakach i pikantnym efekcie w ustach.',
+                    'price' => '1.29', 'quantity' => '55.00', 'describe' => 'Musujące cukierki o różnych smakach i pikantnym efekcie w ustach w kształcie małych rybek.',
                     'exp-date' => '2023-12-15'
                 ],
                 [
@@ -127,7 +127,7 @@ class SweetsSeeder extends Seeder
                     'exp-date' => '2024-06-30'
                 ],
                 [
-                    'name' => 'Tangy Twist', 'category' => 'Cukierki', 'type' => 'Kwasowo-owocowe',
+                    'name' => 'Tangy Twist Candy', 'category' => 'Cukierki', 'type' => 'Kwasowo-owocowe',
                     'price' => '1.59', 'quantity' => '45.00', 'describe' => 'Cukierki o kwasowo-owocowym smaku: cytryna, pomarańcza, truskawka.',
                     'exp-date' => '2023-11-15'
                 ],

@@ -12,10 +12,18 @@ class SweetsController extends Controller
         $czekolada = Sweets::where('category', 'czekolada')->inRandomOrder()->first();
         $zelek = Sweets::where('category', 'żelki')->inRandomOrder()->first();
 
+        $pol_cukierek = Sweets::where('id', '36')->firstOrFail();
+        $pol_czekolada = Sweets::where('id', '48')->firstOrFail();
+        $pol_zelek = Sweets::where('id', '34')->firstOrFail();
+
         return view('shop.index', [
             'cukierek' => $cukierek,
             'czekolada' => $czekolada,
-            'zelek' => $zelek
+            'zelek' => $zelek,
+            'pol_cukierek' => $pol_cukierek,
+            'pol_czekolada' => $pol_czekolada,
+            'pol_zelek' => $pol_zelek
+
         ]);
     }
 

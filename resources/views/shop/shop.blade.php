@@ -10,13 +10,13 @@
     @include('shared.nav')
     @php
         if($sw_category=='cukierki') {
-            $tlo = '#d5aedd';
+            $tlo = '#b9ddae';
         }
         else if($sw_category=='czekolada') {
             $tlo = '#ddb0ae';
         }
         else if($sw_category=='żelki') {
-            $tlo = '#b9ddae';
+            $tlo = '#d5aedd';
         }
         else {
             $tlo = '#dddaae';
