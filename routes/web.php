@@ -34,4 +34,5 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::controller(UsersController::class)->group(function () {
     Route::get('/cart/{id}', 'cart')->name('shop.cart');
+    Route::get('/profil/{id}', 'profil')->name('shop.profil');
 });

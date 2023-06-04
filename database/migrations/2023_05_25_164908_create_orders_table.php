@@ -13,13 +13,20 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_transactions');
-            $table->foreign('id_transactions')->references('id')->on('transactions');
             $table->float('cost');
             $table->string('address', 120);
             $table->string('order_status', 80);
         });
+
+        Schema::create('order_transaction', function (Blueprint $table) {
+            $table->unsignedBigInteger('order_id');
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->unsignedBigInteger('transaction_id');
+            $table->foreign('transaction_id')->references('id')->on('transactions');
+            $table->primary(['order_id', 'transaction_id']);
+        });
     }
+
 
     /**
      * Reverse the migrations.

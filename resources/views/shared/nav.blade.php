@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav gap-2">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Nasze słodycze
                     </a>
                     <ul class="dropdown-menu" style="background-color: #dddddd">
@@ -29,18 +29,21 @@
                 </li>
             </ul>
             @if (Auth::check())
-                <li class="ms-auto nav-item dropdown me-3" style="list-style-type: none; position: relative;">
-                    <a class="dropdown-toggle-no-caret btn btn-outline-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ Auth::user()->name }}
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" style="background-color: #dddddd; top: 100%; left: auto; right: 0;">
-                        <li><a class="dropdown-item" href="#">Profil</a></li>
-                        <li><a class="dropdown-item" href="{{ route('logout') }}">Wyloguj</a></li>
-                    </ul>
-                </li>
-                {{-- <a class="btn btn-outline-dark ms-auto" href="{{ route('logout') }}">Wyloguj</a> --}}
+                <div class="navbar-nav ms-auto">
+                    <li class="ms-auto nav-item dropdown me-3" style="list-style-type: none; position: relative;">
+                        <a class="dropdown-toggle-no-caret btn btn-outline-dark" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ Auth::user()->name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" style="background-color: #dddddd;">
+                            <li><a class="dropdown-item" href="{{ route('shop.profil', ['id' => Auth::user()->id ])}}">Profil</a></li>
+                            <li><a class="dropdown-item" href="{{ route('logout') }}">Wyloguj</a></li>
+                        </ul>
+                    </li>
+                </div>
             @else
-                <a class="btn btn-outline-dark ms-auto" href="{{ route('login') }}">Zaloguj</a>
+                <div class="navbar-nav ms-auto">
+                    <a class="btn btn-outline-dark ms-auto" href="{{ route('login') }}">Zaloguj</a>
+                </div>
             @endif
         </div>
     </div>

@@ -14,4 +14,12 @@ class UsersController extends Controller
             'user'=>$user
         ]);
     }
+
+    public function profil($id){
+        $user = Users::where('id', $id)->firstOrFail();
+
+        return view('shop.profil',[
+            'user'=>$user
+        ]);
+    }
 }

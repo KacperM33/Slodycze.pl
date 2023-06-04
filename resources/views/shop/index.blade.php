@@ -18,7 +18,7 @@
         </div>
         <center>
             <div class="row">
-                <div class="col col-lg-4 mb-3">
+                <div class="col col-xl-4 mb-3">
                     <div class="card text-bg-dark border-dark" style="width: 20rem; -webkit-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
                     -moz-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
                     box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);">
@@ -32,7 +32,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col col-lg-4 mb-3">
+                <div class="col col-xl-4 mb-3">
                     <div class="card text-bg-dark border-dark" style="width: 20rem; -webkit-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
                     -moz-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
                     box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);">
@@ -46,7 +46,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col col-lg-4 mb-3">
+                <div class="col col-xl-4 mb-3">
                     <div class="card text-bg-dark border-dark" style="width: 20rem; -webkit-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
                     -moz-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
                     box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);">
@@ -94,7 +94,7 @@
             </div>
             <center>
                 <div class="row">
-                    <div class="col col-lg-4 mb-3">
+                    <div class="col col-xl-4 mb-3">
                         <div class="card text-bg-dark border-dark" style="width: 20rem; -webkit-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
                         -moz-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
                         box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);">
@@ -108,7 +108,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col col-lg-4 mb-3">
+                    <div class="col col-xl-4 mb-3">
                         <div class="card text-bg-dark border-dark" style="width: 20rem; -webkit-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
                         -moz-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
                         box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);">
@@ -122,7 +122,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col col-lg-4 mb-3">
+                    <div class="col col-xl-4 mb-3">
                         <div class="card text-bg-dark border-dark" style="width: 20rem; -webkit-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
                         -moz-box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);
                         box-shadow: 0px 0px 30px 10px rgba(66, 68, 90, 1);">
