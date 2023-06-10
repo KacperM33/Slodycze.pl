@@ -27,15 +27,23 @@
                         <a class="nav-link" href="{{ route('shop.cart', ['id' => Auth::user()->id ])}}">Twój koszyk</a>
                     @endif
                 </li>
+                <li class="nav-item">
+                    @if (Auth::check())
+                        @if (Auth::user()->role_id == 1)
+                            <a class="nav-link" href="{{route('shop.create')}}">Dodaj</a>
+                        @endif
+                    @endif
+                </li>
             </ul>
             @if (Auth::check())
-                <div class="navbar-nav ms-auto">
+                <div class="navbar-nav ms-auto text-end">
                     <li class="ms-auto nav-item dropdown me-3" style="list-style-type: none; position: relative;">
                         <a class="dropdown-toggle-no-caret btn btn-outline-dark" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" style="background-color: #dddddd;">
                             <li><a class="dropdown-item" href="{{ route('shop.profil', ['id' => Auth::user()->id ])}}">Profil</a></li>
+                            <li><a class="dropdown-item" href="{{ route('shop.profil', ['id' => Auth::user()->id ])}}">Zamówienia</a></li>
                             <li><a class="dropdown-item" href="{{ route('logout') }}">Wyloguj</a></li>
                         </ul>
                     </li>

@@ -31,17 +31,19 @@
             <div class="container mb-5">
                 <div class="row">
                     @forelse ($sweets as $t)
-                        <div class="col-xxl-3 col-lg-4 col-md-5 mb-3">
-                            <div class="card text-bg-dark" style="width: 18rem;">
-                                <img src="{{ asset('img/sweets/'.$t->name.'.jpg') }}" class="card-img-top" alt="...">
-                                <div class="card-body text-start">
-                                <h5 class="card-title">{{ $t->name }}</h5>
-                                <p class="card-text">{{ $t->describe }}</p>
-                                <a href="{{route('shop.item', ['id' => $t->id])}}" class="btn btn-secondary btn-outline-light">Sprawdź!</a>
-                                <h4 style="float: right;">{{ $t->price }}zł/100g</h4>
+                        @if($t->quantity > 0)
+                            <div class="col-xxl-3 col-lg-4 col-md-5 mb-3">
+                                <div class="card text-bg-dark" style="width: 18rem;">
+                                    <img src="{{ asset('img/sweets/'.$t->name.'.jpg') }}" class="card-img-top" alt="...">
+                                    <div class="card-body text-start">
+                                    <h5 class="card-title">{{ $t->name }}</h5>
+                                    <p class="card-text">{{ $t->describe }}</p>
+                                    <a href="{{route('shop.item', ['id' => $t->id])}}" class="btn btn-secondary btn-outline-light">Sprawdź!</a>
+                                    <h4 style="float: right;">{{ $t->price }}zł/100g</h4>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     @empty
                         <p>Brak produktów.</p>
                     @endforelse

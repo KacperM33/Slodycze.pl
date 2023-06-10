@@ -43,13 +43,47 @@
                         <input type="number" min="0" placeholder="0" step="10" class="form-control" aria-label="Amount (to the nearest dollar)">
                         <span class="input-group-text">g</span>
                     </div>
-                    <div class="btn btn-danger btn-outline-dark">Dodaj do koszyka</div>
+                    <div class="btn btn-success btn-outline-light">Dodaj do koszyka</div>
                 </div>
             </form>
             <p class="mb-5" style="font-weight: bold;">{{ $id->describe }}</p>
-          </div>
+            <div>
+                @if (Auth::check())
+                    @if (Auth::user()->role_id == 1)
+                        <form action="{{ route('sweets.fill', $id->id) }}" method="POST">
+                            @csrf
+                            @method('POST')
+                            <div class="form-group mb-3 mb-lg-5">
+                                <div class="input-group mt-3 mb-3">
+                                    <span class="input-group-text">Ilość</span>
+                                    <input type="number" min="0" placeholder="0" step="10" class="form-control" name="quantity" aria-label="Amount (to the nearest dollar)">
+                                    <span class="input-group-text">g</span>
+                                    <button type="submit" class="btn btn-warning btn-outline-dark">UZUPEŁNIJ</button>
+                                </div>
+                            </div>
+                        </form>
+                        <form action="{{ route('sweets.update', $id->id) }}" method="POST" onsubmit="return confirm('Czy na pewno chcesz zaktualizować cene?')">
+                            @csrf
+                            @method('PUT')
+                            <div class="form-group mb-3 mb-lg-5">
+                                <div class="input-group mt-3 mb-3">
+                                    <input type="number" min="00.10" placeholder="00.10" step="00.10" class="form-control" name="price" aria-label="Amount (to the nearest dollar)">
+                                    <span class="input-group-text">zł/100g</span>
+                                    <button type="submit" class="btn btn-secondary btn-outline-dark">ZAKTUALIZUJ CENE</button>
+                                </div>
+                            </div>
+                        </form>
+                        <form action="{{ route('sweets.delete', $id->id) }}" method="POST" onsubmit="return confirm('Czy na pewno chcesz usunąć ten przedmiot?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-outline-dark mb-3">USUŃ</button>
+                        </form>
+                    @endif
+                @endif
+            </div>
+            </div>
         </div>
-      </div>
+    </div>
     </body>
     @include('shared.footer')
 </html>

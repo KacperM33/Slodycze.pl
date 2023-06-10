@@ -24,6 +24,11 @@ Route::controller(SweetsController::class)->group(function () {
     Route::get('/shop', 'index')->name('shop.index');
     Route::get('/shop/{category}', 'shop')->name('shop.shop');
     Route::get('/item/{id}', 'item')->name('shop.item');
+    Route::get('/create', 'create')->name('shop.create');
+    Route::post('/item/{id}', 'fill')->name('sweets.fill');
+    Route::put('/item/{id}', 'update')->name('sweets.update');
+    Route::delete('/item/{id}', 'delete')->name('sweets.delete');
+    Route::post('/create', 'add')->name('sweets.add');
 });
 
 Route::controller(AuthController::class)->group(function () {
@@ -36,3 +41,4 @@ Route::controller(UsersController::class)->group(function () {
     Route::get('/cart/{id}', 'cart')->name('shop.cart');
     Route::get('/profil/{id}', 'profil')->name('shop.profil');
 });
+

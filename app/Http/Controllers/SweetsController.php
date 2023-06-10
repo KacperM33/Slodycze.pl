@@ -46,4 +46,72 @@ class SweetsController extends Controller
             'sw_category' => $category
         ]);
     }
+
+    public function create(){
+        return view('shop.create');
+    }
+
+    public function add(Request $request){
+        $name = $request->input('name');
+        $category = $request->input('category');
+        $type = $request->input('type');
+        $price = $request->input('price');
+        $quantity = $request->input('quantity');
+        $describe = $request->input('describe');
+
+        $item = new Sweets();
+        $item->name = $name;
+        $item->category = $category;
+        $item->type = $type;
+        $item->price = $price;
+        $item->quantity = $quantity;
+        $item->describe = $describe;
+
+        $item->save();
+
+        $image = $request->file('photo');
+
+        $imageName = $name.'.jpg';
+
+        $image->move(public_path('img/sweets'), $imageName);
+
+        return redirect()->route('shop.index')->with('success', 'Element został pomyślnie dodany.');
+    }
+
+    public function delete($id)
+    {
+        $item = Sweets::where('id', $id)->firstOrFail();
+
+        $item->quantity = 0.00;
+
+        $item->save();
+
+        return redirect()->route('shop.index');
+    }
+
+    public function fill(Request $request, $id)
+    {
+        $quantity = $request->input('quantity');
+
+        $item = Sweets::where('id', $id)->firstOrFail();
+
+        $item->quantity += $quantity/1000;
+
+        $item->save();
+
+        return redirect()->route('shop.index');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $price = $request->input('price');
+
+        $item = Sweets::where('id', $id)->firstOrFail();
+
+        $item->price = $price;
+
+        $item->save();
+
+        return redirect()->route('shop.index');
+    }
 }

@@ -19,7 +19,6 @@ return new class extends Migration
             $table->float('price');
             $table->float('quantity');
             $table->string('describe', 250);
-            $table->date('exp-date');
         });
     }
 
