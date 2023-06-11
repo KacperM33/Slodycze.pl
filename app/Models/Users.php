@@ -11,6 +11,7 @@ use Illuminate\Notifications\Notifiable;
 
 class Users extends Authenticatable
 {
+    public $timestamps = false;
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
