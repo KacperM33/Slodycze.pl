@@ -36,40 +36,52 @@
             <h6 style="color: #682121">{{ $id->category }}</h6>
             <p>{{ $id->type }}</p>
             <h5>{{ $id->price }}zł/100g</h5>
-            <form>
+            <form action="{{ route('shop.addTrans', $id->id) }}" method="POST" class="was-validated">
+                @csrf
+                @method('POST')
                 <div class="form-group mb-3 col-lg-5 col-7 mb-lg-5">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Ilość</span>
-                        <input type="number" min="0" placeholder="0" step="10" class="form-control" aria-label="Amount (to the nearest dollar)">
+                        <input type="number" min="10" placeholder="0" step="10" class="form-control" name="weight" aria-label="Amount (to the nearest dollar)" required>
                         <span class="input-group-text">g</span>
+                        <div class="form-text">Minimalna ilość zamówienia to 10 gramów</div>
+                        @if ($errors->has('weight'))
+                            <div class="alert alert-danger">{{ $errors->first('weight') }}</div>
+                        @endif
                     </div>
-                    <div class="btn btn-success btn-outline-light">Dodaj do koszyka</div>
+                    <button type="submit" class="btn btn-success btn-outline-light">Dodaj do koszyka</button>
+                    <input type="hidden" name="id_users" value="{{ Auth::user()->id }}" />
+                    @if ($errors->has('id_users'))
+                        <div class="alert alert-danger">{{ $errors->first('id_users') }}</div>
+                    @endif
                 </div>
             </form>
             <p class="mb-5" style="font-weight: bold;">{{ $id->describe }}</p>
             <div>
                 @if (Auth::check())
                     @if (Auth::user()->role_id == 1)
-                        <form action="{{ route('sweets.fill', $id->id) }}" method="POST">
+                        <form action="{{ route('sweets.fill', $id->id) }}" method="POST" class="was-validated">
                             @csrf
                             @method('POST')
                             <div class="form-group mb-3 mb-lg-5">
                                 <div class="input-group mt-3 mb-3">
                                     <span class="input-group-text">Ilość</span>
-                                    <input type="number" min="0" placeholder="0" step="10" class="form-control" name="quantity" aria-label="Amount (to the nearest dollar)">
+                                    <input type="number" min="10" placeholder="0" step="10" class="form-control" name="quantity" aria-label="Amount (to the nearest dollar)" required>
                                     <span class="input-group-text">g</span>
                                     <button type="submit" class="btn btn-warning btn-outline-dark">UZUPEŁNIJ</button>
                                 </div>
                             </div>
                         </form>
-                        <form action="{{ route('sweets.update', $id->id) }}" method="POST" onsubmit="return confirm('Czy na pewno chcesz zaktualizować cene?')">
+                        <form action="{{ route('sweets.update', $id->id) }}" method="POST" onsubmit="return confirm('Czy na pewno chcesz zaktualizować cene?')" class="was-validated">
                             @csrf
                             @method('PUT')
                             <div class="form-group mb-3 mb-lg-5">
                                 <div class="input-group mt-3 mb-3">
-                                    <input type="number" min="00.10" placeholder="00.10" step="00.10" class="form-control" name="price" aria-label="Amount (to the nearest dollar)">
+                                    <input type="number" min="00.10" placeholder="00.10" step="00.01" class="form-control" name="price" aria-label="Amount (to the nearest dollar)" required>
                                     <span class="input-group-text">zł/100g</span>
                                     <button type="submit" class="btn btn-secondary btn-outline-dark">ZAKTUALIZUJ CENE</button>
+                                    <div class="form-text">Nowa cena musi wynosić conajmniej 0.10zł/100g</div>
+
                                 </div>
                             </div>
                         </form>

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SweetsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\TransactionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ Route::controller(SweetsController::class)->group(function () {
     Route::get('/shop/{category}', 'shop')->name('shop.shop');
     Route::get('/item/{id}', 'item')->name('shop.item');
     Route::get('/create', 'create')->name('shop.create');
-    Route::post('/item/{id}', 'fill')->name('sweets.fill');
+    Route::post('/item/{id}/fill', 'fill')->name('sweets.fill');
     Route::put('/item/{id}', 'update')->name('sweets.update');
     Route::delete('/item/{id}', 'delete')->name('sweets.delete');
     Route::post('/create', 'add')->name('sweets.add');
@@ -43,3 +44,6 @@ Route::controller(UsersController::class)->group(function () {
     Route::put('/profil/{id}', 'update')->name('user.update');
 });
 
+Route::controller(TransactionsController::class)->group(function () {
+    Route::post('/item/{id}', 'addTrans')->name('shop.addTrans');
+});

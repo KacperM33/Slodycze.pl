@@ -52,6 +52,17 @@ class SweetsController extends Controller
     }
 
     public function add(Request $request){
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'category' => 'required',
+            'type' => 'required',
+            'price' => 'required|numeric|min:0.10',
+            'quantity' => 'required|numeric|min:10',
+            'describe' => 'required',
+        ],[
+            'name.required' => 'Nazwa słodycza wymagana!'
+        ]);
+
         $name = $request->input('name');
         $category = $request->input('category');
         $type = $request->input('type');
@@ -75,7 +86,7 @@ class SweetsController extends Controller
 
         $image->move(public_path('img/sweets'), $imageName);
 
-        return redirect()->route('shop.index')->with('success', 'Element został pomyślnie dodany.');
+        return redirect()->route('shop.index')->withErrors($validatedData)->with('success', 'Element został pomyślnie dodany.');
     }
 
     public function delete($id)
@@ -91,6 +102,10 @@ class SweetsController extends Controller
 
     public function fill(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            'quantity' => 'required|numeric|min:10',
+        ]);
+
         $quantity = $request->input('quantity');
 
         $item = Sweets::where('id', $id)->firstOrFail();
@@ -104,6 +119,10 @@ class SweetsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            'price' => 'required|numeric|min:0.10',
+        ]);
+
         $price = $request->input('price');
 
         $item = Sweets::where('id', $id)->firstOrFail();

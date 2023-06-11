@@ -20,7 +20,12 @@ class AuthController extends Controller
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
-        ]);
+        ],[
+            'email.required' => 'Podaj swój email.',
+            'email.email' => 'Zły format emaila.',
+            'password.required' => 'Podaj swoje hasło.',
+        ]
+        );
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();

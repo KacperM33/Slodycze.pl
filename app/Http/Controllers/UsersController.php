@@ -24,6 +24,16 @@ class UsersController extends Controller
     }
 
     public function update(Request $request, $id){
+        $validatedData = $request->validate([
+            'name' => 'required|string|alpha',
+            'surname' =>'required|string|alpha',
+            'address' =>'required',
+            'phone' => 'required|numeric|digits:9',
+        ],[
+            'name.alpha' => 'Imie musi się składać tylko z liter.',
+            'surname.alpha' => 'Nazwisko musi się składać tylko z liter.',
+        ]);
+
         $name = $request->input('name');
         $surname = $request->input('surname');
         $address = $request->input('address');
@@ -36,6 +46,6 @@ class UsersController extends Controller
         $user->phone = $phone;
         $user->save();
 
-        return redirect()->route('shop.index')->with('success', 'Pomyślnie zmieniono dane.');
+        return redirect()->route('shop.index')->withErrors($validatedData)->with('success', 'Pomyślnie zmieniono dane.');
     }
 }
