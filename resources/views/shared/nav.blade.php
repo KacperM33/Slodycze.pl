@@ -17,12 +17,6 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Nowości</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Kontakt</a>
-                </li>
-                <li class="nav-item">
                     @if (Auth::check())
                         <a class="nav-link" href="{{ route('shop.cart', ['id' => Auth::user()->id ])}}">Twój koszyk</a>
                     @endif
