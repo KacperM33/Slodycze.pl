@@ -50,9 +50,15 @@
                         @endif
                     </div>
                     <button type="submit" class="btn btn-success btn-outline-light">Dodaj do koszyka</button>
-                    <input type="hidden" name="id_users" value="{{ Auth::user()->id }}" />
-                    @if ($errors->has('id_users'))
-                        <div class="alert alert-danger">{{ $errors->first('id_users') }}</div>
+                    @if(Auth::check())
+                        <input type="hidden" name="id_users" value="{{ Auth::user()->id }}" />
+                        @if ($errors->has('id_users'))
+                            <div class="alert alert-danger">{{ $errors->first('id_users') }}</div>
+                        @endif
+                    @else
+                        @if ($errors->has('id_users'))
+                            <div class="alert alert-danger">{{ $errors->first('id_users') }}</div>
+                        @endif
                     @endif
                 </div>
             </form>

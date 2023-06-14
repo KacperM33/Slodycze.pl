@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 use App\Models\Users;
+use App\Models\Transactions;
+use App\Models\Sweets;
 
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
     public function cart($id){
-        $user = Users::where('id', $id)->firstOrFail();
+        $transaction = Transactions::where('id_users', $id)->get();
+        $transactionid = Transactions::where('id_users', $id)->firstOrFail();
+        $item = Sweets::where('id', $transactionid->id_sweets)->get();
 
         return view('shop.cart',[
-            'user'=>$user
+            'transaction'=>$transaction,
+            // 'price'=>$price,
+            'item'=>$item,
+            // 'weight'=>$weight,
         ]);
     }
 

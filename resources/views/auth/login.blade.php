@@ -35,15 +35,15 @@
 
         <div class="row d-flex justify-content-center">
             <div class="col-10 col-sm-10 col-md-6 col-lg-4">
-                <form method="POST" action="{{ route('login.authenticate') }}" class="needs-validation" novalidate>
+                <form method="POST" action="{{ route('login.authenticate') }}" class="needs-validation" class="was-validation">
                     @csrf
                     <div class="form-group mb-2">
                         <label for="email">Email</label>
-                        <input id="email" name="email" type="text" class="form-control" value="{{ old('email') }}">
+                        <input id="email" name="email" type="email" class="form-control" value="{{ old('email') }}" required>
                     </div>
                     <div class="form-group mb-2">
                         <label for="continent">Hasło</label>
-                        <input id="password" name="password" type="password" class="form-control">
+                        <input id="password" name="password" type="password" class="form-control" required>
                     </div>
                     <div class="text-center mt-4 mb-4">
                         <input class="btn btn-secondary btn-outline-light" type="submit" value="Wyślij">

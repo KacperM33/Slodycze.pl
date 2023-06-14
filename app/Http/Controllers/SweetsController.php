@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Sweets;
+use Illuminate\Support\Facades\DB;
 
 class SweetsController extends Controller
 {
@@ -12,9 +13,9 @@ class SweetsController extends Controller
         $czekolada = Sweets::where('category', 'czekolada')->inRandomOrder()->first();
         $zelek = Sweets::where('category', 'żelki')->inRandomOrder()->first();
 
-        $pol_cukierek = Sweets::where('id', '36')->firstOrFail();
-        $pol_czekolada = Sweets::where('id', '48')->firstOrFail();
-        $pol_zelek = Sweets::where('id', '34')->firstOrFail();
+        $pol_cukierek = Sweets::where('id', '36')->first();
+        $pol_czekolada = Sweets::where('id', '48')->first();
+        $pol_zelek = Sweets::where('id', '34')->first();
 
         return view('shop.index', [
             'cukierek' => $cukierek,
@@ -29,6 +30,17 @@ class SweetsController extends Controller
 
     public function shop($category){
         $sweets = Sweets::where('category', $category)->get();
+        $id = $sweets->pluck('id')->toArray();
+
+        return view('shop.shop', [
+            'sweets' => $sweets,
+            'sw_category' => $category,
+            'id' => $id
+        ]);
+    }
+
+    public function sort($category){
+        $sweets = Sweets::where('category', $category)->orderBy('price')->get();
         $id = $sweets->pluck('id')->toArray();
 
         return view('shop.shop', [
@@ -93,9 +105,7 @@ class SweetsController extends Controller
     {
         $item = Sweets::where('id', $id)->firstOrFail();
 
-        $item->quantity = 0.00;
-
-        $item->save();
+        $item->delete();
 
         return redirect()->route('shop.index');
     }
