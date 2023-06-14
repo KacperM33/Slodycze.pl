@@ -1,25 +1,43 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Order_Transaction;
 use App\Models\Users;
 use App\Models\Transactions;
 use App\Models\Sweets;
+use App\Models\Orders;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
     public function cart($id){
-        $transaction = Transactions::where('id_users', $id)->get();
-        $transactionid = Transactions::where('id_users', $id)->firstOrFail();
-        $item = Sweets::where('id', $transactionid->id_sweets)->get();
+        $sweets = DB::table('sweets')
+            ->join('transactions', 'sweets.id', '=', 'transactions.id_sweets')
+            ->select('sweets.name', 'sweets.price', 'transactions.weight', 'transactions.id')
+            ->where('transactions.id_users', '=', $id)
+            ->where('transactions.confirmed', '=', 0)
+            ->get();
 
         return view('shop.cart',[
-            'transaction'=>$transaction,
-            // 'price'=>$price,
-            'item'=>$item,
-            // 'weight'=>$weight,
+            'sweets'=>$sweets,
         ]);
+    }
+
+    public function cartDel(Request $request, $id){
+        $req = $request->input('cartDel');
+
+        Transactions::where('id', $req)->delete();
+
+        return redirect()->route('shop.cart', ['id' => $id]);
+    }
+
+    public function buy($id){
+        Transactions::where('id_users', $id)->where('confirmed', 0)->update(['confirmed' => 1]);
+
+        return redirect()->route('shop.cart', ['id' => $id]);;
     }
 
     public function profil($id){

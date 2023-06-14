@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_sweets');
             $table->unsignedBigInteger('weight');
             $table->date('date');
+            $table->boolean('confirmed')->default(0);
         });
 
         Schema::table('transactions', function (Blueprint $table) {
