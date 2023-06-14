@@ -24,13 +24,15 @@ Route::get('/', function () {
 Route::controller(SweetsController::class)->group(function () {
     Route::get('/shop', 'index')->name('shop.index');
     Route::get('/shop/{category}', 'shop')->name('shop.shop');
-    Route::get('/shop/{category}/sort', 'sort')->name('shop.sort');
+    Route::get('/shop/{category}/order', 'order')->name('shop.order');
+    Route::get('/shop/{category}/orderD', 'orderD')->name('shop.orderD');
     Route::get('/item/{id}', 'item')->name('shop.item');
     Route::get('/create', 'create')->name('shop.create');
     Route::post('/item/{id}/fill', 'fill')->name('sweets.fill');
     Route::put('/item/{id}', 'update')->name('sweets.update');
     Route::delete('/item/{id}', 'delete')->name('sweets.delete');
     Route::post('/create', 'add')->name('sweets.add');
+    Route::get('/search', 'search')->name('shop.search');
 });
 
 Route::controller(AuthController::class)->group(function () {

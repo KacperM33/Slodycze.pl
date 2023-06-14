@@ -27,8 +27,8 @@
         <h1 class="text-center mb-3 mt-3" style="font-family:'Courier New', Courier, monospace ">{{mb_strtoupper(mb_substr($sw_category, 0, 1)) . mb_substr($sw_category, 1)}}</h1>
         <center>
             <div>
-            <a type="button" class="btn btn-secondary mb-3" href={{ route('shop.sort', ['category' => $sw_category])}}>Sortuj po cenie</a>
-            {{-- <a type="button" class="btn btn-secondary mb-3" href={{ route('shop.sortN', ['category' => $sw_category])}}>Sortuj po nazwie</a> --}}
+                <a type="button" class="btn btn-secondary mb-3" href={{ route('shop.order', ['category' => $sw_category])}}>Sortuj od naniższej ceny</a>
+                <a type="button" class="btn btn-secondary mb-3" href={{ route('shop.orderD', ['category' => $sw_category])}}>Sortuj od najwyższej ceny</a>
             </div>
             <div class="container mb-5">
                 <div class="row">

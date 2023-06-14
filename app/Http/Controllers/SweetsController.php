@@ -13,9 +13,24 @@ class SweetsController extends Controller
         $czekolada = Sweets::where('category', 'czekolada')->inRandomOrder()->first();
         $zelek = Sweets::where('category', 'żelki')->inRandomOrder()->first();
 
-        $pol_cukierek = Sweets::where('id', '36')->first();
-        $pol_czekolada = Sweets::where('id', '48')->first();
-        $pol_zelek = Sweets::where('id', '34')->first();
+        try {
+            $pol_cukierek = Sweets::where('id', '36')->firstOrFail();
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            $pol_cukierek = $cukierek;
+        }
+
+        try {
+            $pol_czekolada = Sweets::where('id', '48')->firstOrFail();
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            $pol_czekolada = $czekolada;
+        }
+
+        try {
+            $pol_zelek = Sweets::where('id', '34')->firstOrFail();
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            $pol_zelek = $zelek;
+        }
+
 
         return view('shop.index', [
             'cukierek' => $cukierek,
@@ -39,7 +54,7 @@ class SweetsController extends Controller
         ]);
     }
 
-    public function sort($category){
+    public function order($category){
         $sweets = Sweets::where('category', $category)->orderBy('price')->get();
         $id = $sweets->pluck('id')->toArray();
 
@@ -47,6 +62,27 @@ class SweetsController extends Controller
             'sweets' => $sweets,
             'sw_category' => $category,
             'id' => $id
+        ]);
+    }
+
+    public function orderD($category){
+        $sweets = Sweets::where('category', $category)->orderByDesc('price')->get();
+        $id = $sweets->pluck('id')->toArray();
+
+        return view('shop.shop', [
+            'sweets' => $sweets,
+            'sw_category' => $category,
+            'id' => $id
+        ]);
+    }
+
+    public function search(Request $request){
+        $req = $request->input('search');
+        $item = Sweets::where('name', 'like', '%' . $req . '%')->get();
+
+        return view('shop.search', [
+            'item' => $item,
+            'request' => $req,
         ]);
     }
 
