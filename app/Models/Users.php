@@ -20,4 +20,9 @@ class Users extends Authenticatable
         'password',
         'role_id'
     ];
+
+    public function transactions()
+    {
+        return $this->belongsTo(Transactions::class);
+    }
 }

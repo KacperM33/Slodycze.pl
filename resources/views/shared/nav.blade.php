@@ -28,6 +28,15 @@
                         @endif
                     @endif
                 </li>
+                <li>
+                    <form action="{{ route('shop.search') }}" method="GET">
+                        @csrf
+                        @method('GET')
+                        <div class="mb-3 mb-lg-0">
+                          <input type="text" class="form-control" id="search" name="search" placeholder="Szukaj" style="background-color: #e2dfdf; border: 2px solid #707070; border-width: 1 1 1px;">
+                        </div>
+                    </form>
+                </li>
             </ul>
             @if (Auth::check())
                 <div class="navbar-nav ms-auto text-end">
@@ -37,13 +46,12 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" style="background-color: #dddddd;">
                             <li><a class="dropdown-item" href="{{ route('shop.profil', ['id' => Auth::user()->id ])}}">Profil</a></li>
-                            <li><a class="dropdown-item" href="{{ route('shop.profil', ['id' => Auth::user()->id ])}}">Zamówienia</a></li>
                             <li><a class="dropdown-item" href="{{ route('logout') }}">Wyloguj</a></li>
                         </ul>
                     </li>
                 </div>
             @else
-                <div class="navbar-nav ms-auto">
+                <div class="navbar-nav ms-auto text-end">
                     <a class="btn btn-outline-dark ms-auto" href="{{ route('login') }}">Zaloguj</a>
                 </div>
             @endif

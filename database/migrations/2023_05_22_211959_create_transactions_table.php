@@ -15,10 +15,14 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_users');
             $table->unsignedBigInteger('id_sweets');
-            $table->foreign('id_users')->references('id')->on('users');
-            $table->foreign('id_sweets')->references('id')->on('sweets');
             $table->unsignedBigInteger('weight');
             $table->date('date');
+            $table->boolean('confirmed')->default(0);
+        });
+
+        Schema::table('transactions', function (Blueprint $table) {
+            $table->foreign('id_users')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_sweets')->references('id')->on('sweets')->onDelete('cascade');
         });
     }
 

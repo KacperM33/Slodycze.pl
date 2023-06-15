@@ -35,7 +35,11 @@
 
         <div class="row d-flex justify-content-center">
             <div class="col-10 col-sm-10 col-md-6 col-lg-4">
+<<<<<<< HEAD
                 <form method="POST" action="{{ route('login.authenticate') }}" class="was-validation">
+=======
+                <form method="POST" action="{{ route('login.authenticate') }}" class="needs-validation" class="was-validation">
+>>>>>>> 3db2b7df448457fbdcaa306964e8db0e0921c0d7
                     @csrf
                     <div class="form-group mb-2">
                         <label for="email">Email</label>
