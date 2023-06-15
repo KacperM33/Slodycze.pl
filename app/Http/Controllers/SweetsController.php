@@ -108,25 +108,25 @@ class SweetsController extends Controller
             'quantity' => 'required|numeric|min:10',
             'describe' => 'required',
         ],[
-            'name.required' => 'Nazwa słodycza wymagana!'
+            'name.required' => 'Nazwa słodycza wymagana!',
+            'category.required' => 'Kategoria słodycza wymagana!',
+            'type.required' => 'Typ słodycza wymagany!',
+            'price.required' => 'Cena słodycza wymagana!',
+            'quantity.required' => 'Ilość słodycza wymagana!',
+            'describe.required' => 'Opis słodycza wymagany!',
         ]);
 
-        $name = $request->input('name');
-        $category = $request->input('category');
-        $type = $request->input('type');
-        $price = $request->input('price');
-        $quantity = $request->input('quantity');
-        $describe = $request->input('describe');
-
         $item = new Sweets();
-        $item->name = $name;
-        $item->category = $category;
-        $item->type = $type;
-        $item->price = $price;
-        $item->quantity = $quantity;
-        $item->describe = $describe;
+        $item->name = $request->input('name');
+        $item->category = $request->input('category');
+        $item->type = $request->input('type');
+        $item->price = $request->input('price');
+        $item->quantity = $request->input('quantity');
+        $item->describe = $request->input('describe');
 
         $item->save();
+
+        $name = $request->input('name');
 
         $image = $request->file('photo');
 

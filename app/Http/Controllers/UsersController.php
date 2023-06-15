@@ -59,16 +59,11 @@ class UsersController extends Controller
             'surname.alpha' => 'Nazwisko musi się składać tylko z liter.',
         ]);
 
-        $name = $request->input('name');
-        $surname = $request->input('surname');
-        $address = $request->input('address');
-        $phone = $request->input('phone');
-
         $user = Users::where('id', $id)->firstOrFail();
-        $user->name = $name;
-        $user->surname = $surname;
-        $user->address = $address;
-        $user->phone = $phone;
+        $user->name = $request->input('name');
+        $user->surname = $request->input('surname');
+        $user->address = $request->input('address');
+        $user->phone = $request->input('phone');
         $user->save();
 
         return redirect()->route('shop.index')->withErrors($validatedData)->with('success', 'Pomyślnie zmieniono dane.');
