@@ -24,7 +24,21 @@
                 <li class="nav-item">
                     @if (Auth::check())
                         @if (Auth::user()->role_id == 1)
-                            <a class="nav-link" href="{{route('shop.create')}}">Dodaj</a>
+                            <a class="nav-link" href="{{route('shop.create')}}">Dodaj produkt</a>
+                        @endif
+                    @endif
+                </li>
+                <li class="nav-item">
+                    @if (Auth::check())
+                        @if (Auth::user()->role_id == 1)
+                            <a class="nav-link" href="{{route('user.add')}}"><b>Dodaj użytkownika</b></a>
+                        @endif
+                    @endif
+                </li>
+                <li class="nav-item">
+                    @if (Auth::check())
+                        @if (Auth::user()->role_id == 1)
+                            <a class="nav-link" href="{{route('user.users')}}">Użytkownicy</a>
                         @endif
                     @endif
                 </li>

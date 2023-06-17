@@ -48,6 +48,13 @@
                     <div class="text-center mt-4 mb-4">
                         <input class="btn btn-secondary btn-outline-light" type="submit" value="Wyślij">
                     </div>
+                    <div class="text-center">
+                        <p>
+                        Zapomniałeś hasła? Skontaktuj się z Administratorem!
+                        <br> Telefon <b>881365578</b>
+                        <br> (nie dzwonić przed 8 rano)
+                        </p>
+                    </div>
                 </form>
             </div>
         </div>

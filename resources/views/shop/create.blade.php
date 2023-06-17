@@ -13,12 +13,13 @@
     @if(Auth::check())
         @if(Auth::user()->role_id == 1)
             <div class="row d-flex justify-content-center mb-5 mt-3">
+                <h1 class="text-center mb-3"> Dodaj nowy produkt </h1>
                 <div class="col-10 col-sm-10 col-md-6 col-lg-4">
                     <form method="POST" action="{{ route('sweets.add') }}" enctype="multipart/form-data" class="was-validated">
                         @csrf
                         <div class="form-group mb-2">
                             <label for="name">Nazwa słodycza</label>
-                            <input id="name" name="name" type="text" class="form-control" required>
+                            <input id="name" name="name" type="text" class="form-control" pattern="[A-Z].{0,41}" title="Nazwa słodycza musi być z dużej litery i mieć długość maksymalnie 40 znaków!" required >
                             <div class="invalid-feedback">Nazwa słodycza jest wymagana</div>
                             @if ($errors->has('name'))
                                 <div class="alert alert-danger">{{ $errors->first('name') }}</div>
@@ -36,7 +37,7 @@
                         </div>
                         <div class="form-group mb-2">
                             <label for="type">Typ</label>
-                            <input id="type" name="type" type="text" class="form-control" required>
+                            <input id="type" name="type" type="text" class="form-control" pattern="[A-Z].{0,41}" title="Typ słodycza musi być z dużej litery i mieć długość maksymalnie 40 znaków!" required>
                             <div class="invalid-feedback">Typ słodycza jest wymagany</div>
                             @if ($errors->has('type'))
                                 <div class="alert alert-danger">{{ $errors->first('type') }}</div>
@@ -64,12 +65,12 @@
                         </div>
                         <div class="form-group mb-2">
                             <label for="describe">Opis</label>
-                            <input id="describe" name="describe" type="text" class="form-control" required>
+                            <input id="describe" name="describe" type="text" class="form-control" pattern="[A-Z].{0,251}" title="Opis słodycza musi być z dużej litery i mieć długość maksymalnie 250 znaków!" required>
                             <div class="invalid-feedback">Opis wymagany</div>
                         </div>
                         <div class="form-group mb-2">
                             <label for="photo">Dodaj zdjęcie przedmiotu:</label>
-                            <input type="file" class="form-control" aria-label="file example"  id="photo" name="photo" required>
+                            <input type="file" class="form-control" aria-label="file example"  id="photo" name="photo" accept="image/jpeg" required>
                             <div class="invalid-feedback">Wybierz zdjęcie słodycza</div>
                         </div>
                         <div class="text-center mt-4 mb-4">

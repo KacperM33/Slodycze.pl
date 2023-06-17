@@ -10,9 +10,9 @@
     @include('shared.nav')
     <body style="background-color: #dddaae;">
     <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
-    <h1 class="text-center mt-3">MÓJ PROFIL</h1>
-    @if(Auth::user()->id == $user->id )
+    @if(Auth::user()->id == 1 )
         <div class="row d-flex justify-content-center mb-5 mt-3">
+            <h1 class="text-center mb-3"> Profil użytkownika <b>{{ $user->name }}</b></h1>
             <div class="col-10 col-sm-10 col-md-6 col-lg-4">
                 <form action="{{ route('user.update', $user->id) }}" method="POST" onsubmit="return confirm('Czy na pewno chcesz zmienić dane?')" class="was-validated">
                     @csrf
@@ -65,7 +65,7 @@
                         <div id="emailCom" class="form-text">Email służy jako login, nie można go zmienić.</div>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-success mt-3 justify-content-center">Aktualizuj dane</button>
+                        <button type="submit" class="btn btn-success mt-3 justify-content-center">Aktualizuj dane użytkownika</button>
                     </div>
                 </form>
             </div>

@@ -68,6 +68,7 @@
                             @csrf
                             @method('POST')
                             <div class="form-group mb-3 mb-lg-5">
+                                <p>Ilość słodycza na stanie sklepu wynosi: <b>{{ number_format($id->quantity, 2) }} kg</b></p>
                                 <div class="input-group mt-3 mb-3">
                                     <span class="input-group-text">Ilość</span>
                                     <input type="number" min="10" placeholder="0" step="10" class="form-control" name="quantity" aria-label="Amount (to the nearest dollar)" required>

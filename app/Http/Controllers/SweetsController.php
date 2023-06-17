@@ -121,7 +121,7 @@ class SweetsController extends Controller
         $item->category = $request->input('category');
         $item->type = $request->input('type');
         $item->price = $request->input('price');
-        $item->quantity = $request->input('quantity');
+        $item->quantity = $request->input('quantity')/1000;
         $item->describe = $request->input('describe');
 
         $item->save();

@@ -46,7 +46,12 @@ Route::controller(UsersController::class)->group(function () {
     Route::post('/cart/{id}', 'cartDel')->name('shop.cartDel');
     Route::get('/cart/{id}/buy', 'buy')->name('shop.buy');
     Route::get('/profil/{id}', 'profil')->name('shop.profil');
-    Route::put('/profil/{id}', 'update')->name('user.update');
+    Route::post('/profil/{id}', 'update')->name('user.update');
+    Route::get('/add', 'add')->name('user.add');
+    Route::post('/add', 'create')->name('user.create');
+    Route::get('/users', 'users')->name('user.users');
+    Route::delete('/users', 'delete')->name('user.delete');
+    Route::get('/edit/{id}', 'edit')->name('user.edit');
 });
 
 Route::controller(TransactionsController::class)->group(function () {
