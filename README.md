@@ -18,7 +18,7 @@ This project was completed as the final assignment for the *Web Application Prog
 - [Visual Studio Code](https://code.visualstudio.com)
 
 ## 🚀 Installation Guide
-Make sure you have installed required programs:
+Make sure you have the following programs installed on your system:
 - XAMPP
 - PHP 8.2.0
 - Composer
