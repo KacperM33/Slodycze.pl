@@ -36,10 +36,10 @@ Make sure you have installed required programs:
 ⚠️ Important:
 Do not close the terminal window that appears after running start.bat. It is running the development server that serves the application. Closing it will stop the server.
 
-<!--->
+<!---
 ## 🖥️ User Interface Overview
 
 ## 🗄️ Database Structure
 
 ## 🛠️ CRUD Operations
-<--->
+-->
