@@ -18,7 +18,7 @@ use App\Http\Controllers\TransactionsController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('shop.index');
 });
 
 Route::controller(SweetsController::class)->group(function () {
