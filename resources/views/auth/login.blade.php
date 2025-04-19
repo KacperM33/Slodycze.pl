@@ -51,7 +51,7 @@
                     <div class="text-center">
                         <p>
                         Zapomniałeś hasła? Skontaktuj się z Administratorem!
-                        <br> Telefon <b>881365578</b>
+                        <br> Telefon <b>123456789</b>
                         <br> (nie dzwonić przed 8 rano)
                         </p>
                     </div>

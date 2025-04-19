@@ -54,7 +54,7 @@ Do not close the terminal window running the server. It needs to remain open whi
 
 ### 🔸 Main View
 
-[image]
+![image](https://github.com/user-attachments/assets/c627902a-f7eb-4870-8102-8ef14ddc6412)
 
 The main view displays recommended products, a sliding banner, and some random items from the shop at the bottom of the screen. 
 <br>From this view the user can:
@@ -65,7 +65,7 @@ The main view displays recommended products, a sliding banner, and some random i
 
 ### 🔸 Candies View
 
-[image]
+![image](https://github.com/user-attachments/assets/18daa0a7-fe1f-4e67-8b66-edd402263c70)
 
 The user can browse all **candy** products available in the shop.
 <br>From this view, the user can:
@@ -74,7 +74,7 @@ The user can browse all **candy** products available in the shop.
 
 ### 🔸 Chocolates View
 
-[image]
+![image](https://github.com/user-attachments/assets/53c3606b-2ee6-41e2-bfc3-8a98d9fc5e89)
 
 The user can browse all **chocolate** products available in the shop.
 <br>From this view, the user can:
@@ -83,7 +83,7 @@ The user can browse all **chocolate** products available in the shop.
 
 ### 🔸 Jellies View
 
-[image]
+![image](https://github.com/user-attachments/assets/33ca021b-733a-4732-b751-2f6f43d57a12)
 
 The user can browse all **jelly** products available in the shop.
 <br>From this view, the user can:
@@ -92,32 +92,32 @@ The user can browse all **jelly** products available in the shop.
 
 ### 🔸 Product Detail View (User)
 
-[image]
+![image](https://github.com/user-attachments/assets/4980c134-c0dc-4050-8348-bfa6b2b341ad)
 
 This page shows detailed information about a specific product.
 If the user is logged in, they can order the product by choose a quantity and add the item to the cart via the **"Dodaj do koszyka"** button.
 
 ### 🔸 Search Results View
 
-[image]
+![image](https://github.com/user-attachments/assets/0e3bab28-03dd-4a2d-b0e5-59eedb44080a)
 
 After entering a keyword in the search field, the user is shown a list of matching products. Each result can be opened via the **"Sprawdź"** button on the product card.
 
 ### 🔸 Login View
 
-[image]
+![image](https://github.com/user-attachments/assets/840f42a7-8f03-41a1-b550-3f122e0971b2)
 
 A simple login form where users can sign into their accounts.
 
 ### 🔸 User Profile View
 
-[image]
+![image](https://github.com/user-attachments/assets/1ff8eadf-1448-45be-a20f-940112a394f7)
 
 If the user is logged in, they can access their profile via the top bar (**User’s Name → Profil**). In this view, the user can view and edit their account details.
 
 ### 🔸 Shopping Cart View
 
-[image]
+![image](https://github.com/user-attachments/assets/2a3ef11e-57d2-4038-9c1d-55ec2975c1d2)
 
 Accessible via the **"Twój koszyk"** button when logged in.
 <br>The user can:
@@ -139,20 +139,21 @@ The application uses 8 main tables:
 
 Below is a simplified ER diagram of the database structure.
 
-[image]
+![image](https://github.com/user-attachments/assets/a95b1c09-bd5a-41a3-941c-8dfeb1eff04e)
+
 
 
 ## 🛠️ CRUD Operations
 
 ### 🔸 Add Product View (Admin)
 
-[image]
+![image](https://github.com/user-attachments/assets/15a964ef-3b7b-45d9-905f-920a50c709fd)
 
 Accessible via the **"Dodaj produkt"** button. The admin can add a new product by filling out a simple form.
 
 ### 🔸 Product Detail View (Admin)
 
-[image]
+![image](https://github.com/user-attachments/assets/02374b16-739b-484e-97e6-5682659a51c4)
 
 In the product detail view, the admin can:
 - Delete a product via **"USUŃ"** button
@@ -161,7 +162,7 @@ In the product detail view, the admin can:
 
 ### 🔸 User List View (Admin)
 
-[image]
+![image](https://github.com/user-attachments/assets/3e2bc337-c124-49f7-9c52-a834d08d17b1)
 
 Accessible via the **"Użytkownicy"** button.
 <br>The admin can:
@@ -171,16 +172,16 @@ Accessible via the **"Użytkownicy"** button.
 
 ### 🔸 Edit User View (Admin)
 
-[image]
+![image](https://github.com/user-attachments/assets/c8e1e8eb-7504-4da5-b2ed-ee68df5e5113)
 
 A simple form where the admin can update selected user’s data.
 
 ### 🔸 Create User View (Admin)
 
-[image]
+![image](https://github.com/user-attachments/assets/cc1affca-7e2f-4f7c-ada5-303b8f28ff7f)
 
 Via the **"Dodaj użytkownika"** button, the admin can create new users by completing a short form.
 
 ## 📸 Notes
 Product images, names, and descriptions were generated using AI.
-<br>([](link))
+<br>([Bing (currently Copilot)](https://copilot.microsoft.com))
